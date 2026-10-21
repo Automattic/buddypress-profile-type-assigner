@@ -1,11 +1,24 @@
-/.distignore
-/.editorconfig
-/.git
-/.gitignore
-/.github
-/.phpcs.xml.dist
-/composer.json
-/package.json
-/package-lock.json
-/phpunit.xml.dist
-/tests
+# Directories
+/.claude/
+/.git/
+/.github/
+/bin/
+/node_modules/
+/tests/
+/vendor/
+
+# Files
+AGENTS.md
+.distignore
+.editorconfig
+.gitattributes
+.gitignore
+.phpcs.xml.dist
+.wp-env.json
+.wp-env.override.json
+CHANGELOG.md
+composer.json
+composer.lock
+package.json
+package-lock.json
+phpunit.xml.dist

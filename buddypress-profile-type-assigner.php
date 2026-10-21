@@ -10,7 +10,7 @@
  * @wordpress-plugin
  * Plugin Name:       BuddyPress Profile Type Assigner
  * Description:       Automatically assigns BuddyPress profile types to new users based on their email domain.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Requires at least: 6.6
  * Requires PHP:      8.2
  * Author:            WordPress VIP
@@ -46,6 +46,33 @@ add_action( 'bp_core_activated_user', __NAMESPACE__ . '\\assign_profile_type', 1
 add_action( 'bp_after_activation', __NAMESPACE__ . '\\assign_profile_type', 1000 );
 
 /**
+ * Finds the profile type mapped to an email address's domain.
+ *
+ * The domain must match exactly (case-insensitive), so example.com doesn't
+ * match sub.example.com, myexample.com or example.com.example.org.
+ *
+ * @param string $email   The email address.
+ * @param array  $mapping Domain to profile type mapping, e.g. [ '@example.com' => 'profile-type-1' ].
+ * @return string|null The profile type, or null if the domain isn't mapped.
+ */
+function get_profile_type_for_email( string $email, array $mapping ): ?string {
+	$at = strrpos( $email, '@' );
+	if ( false === $at ) {
+		return null;
+	}
+
+	$email_domain = strtolower( substr( $email, $at + 1 ) );
+
+	foreach ( $mapping as $domain => $type ) {
+		if ( strtolower( ltrim( $domain, '@' ) ) === $email_domain ) {
+			return $type;
+		}
+	}
+
+	return null;
+}
+
+/**
  * Assigns profile type based on email domain.
  *
  * @param int $user_id The user ID.
@@ -72,14 +99,7 @@ function assign_profile_type( $user_id ) {
 		return;
 	}
 
-	// Find matching domain.
-	$profile_type = null;
-	foreach ( BUDDYPRESS_PROFILE_TYPE_DOMAIN_MAPPING as $domain => $type ) {
-		if ( strpos( $email, $domain ) !== false ) {
-			$profile_type = $type;
-			break;
-		}
-	}
+	$profile_type = get_profile_type_for_email( $email, BUDDYPRESS_PROFILE_TYPE_DOMAIN_MAPPING );
 
 	// Not a match to a known domain.
 	if ( ! $profile_type ) {
