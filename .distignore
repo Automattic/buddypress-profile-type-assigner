@@ -1,4 +1,5 @@
 # Directories
+/.claude/
 /.git/
 /.github/
 /bin/
@@ -7,6 +8,7 @@
 /vendor/
 
 # Files
+AGENTS.md
 .distignore
 .editorconfig
 .gitattributes
