@@ -10,7 +10,7 @@ Assigns BuddyPress profile types based on email domain.
 | **Text domain** | `buddypress-profile-type-assigner` |
 | **Namespace** | `Automattic\BuddyPressProfileTypeAssigner` (tests only) |
 | **Source directory** | Root level (single-file plugin) |
-| **Version** | 1.0.2 |
+| **Version** | 1.0.3 |
 | **Requires PHP** | 8.2+ |
 
 ### Directory Structure
