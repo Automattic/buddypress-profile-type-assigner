@@ -12,9 +12,13 @@ $testsuite = getenv( 'PHPUNIT_TESTSUITE' ) ?: '';
 
 // If running via PHPUnit XML config, detect from the input arguments.
 if ( empty( $testsuite ) && isset( $_SERVER['argv'] ) ) {
-	foreach ( $_SERVER['argv'] as $arg ) {
+	foreach ( $_SERVER['argv'] as $i => $arg ) {
 		if ( strpos( $arg, '--testsuite=' ) === 0 ) {
 			$testsuite = str_replace( '--testsuite=', '', $arg );
+			break;
+		}
+		if ( '--testsuite' === $arg ) {
+			$testsuite = $_SERVER['argv'][ $i + 1 ] ?? '';
 			break;
 		}
 	}
