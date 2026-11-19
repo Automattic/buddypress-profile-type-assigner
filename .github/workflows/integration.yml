@@ -89,7 +89,7 @@ jobs:
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Setup wp-env
-        run: npx wp-env start
+        run: npx --no wp-env start
         env:
           WP_ENV_CORE: WordPress/WordPress#${{ matrix.wordpress }}
 

@@ -62,6 +62,6 @@ See `CONTRIBUTING.md` for setup, checks and the contribution workflow. Key point
 - Do not edit WordPress core files or BuddyPress core files.
 - This plugin depends on BuddyPress — test environments must have BuddyPress installed and active.
 - Run `composer cs` before committing. CI will reject code standard violations.
-- Integration tests require `npx wp-env start` running first. Run `npm ci` before it, so `npx` uses the `@wordpress/env` pinned in `package.json`; without it, `npx` falls back to a global install, or fetches the unrelated `wp-env` package from npm.
+- Integration tests require `npx --no wp-env start` running first. Run `npm ci` before it, so `npx` uses the `@wordpress/env` pinned in `package.json`. Always keep `--no`: without an installed `@wordpress/env`, plain `npx wp-env` fetches the unrelated `wp-env` package from npm.
 - Be careful with email domain matching logic — changes could inadvertently reassign profile types for existing users.
 - Do not add complex class hierarchies to a single-file plugin. If the plugin grows significantly, propose a restructure rather than bolting on classes.
