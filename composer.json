@@ -41,7 +41,7 @@
 		"coverage-ci": "@php ./vendor/bin/phpunit",
 		"cs": "@php ./vendor/bin/phpcs -q",
 		"cs-fix": "@php ./vendor/bin/phpcbf -q",
-		"i18n": "@php wp i18n make-pot . ./languages/buddypress-profile-type-assigner.pot",
+		"i18n": "@php wp i18n make-pot . ./languages/buddypress-profile-type-assigner.pot --slug=buddypress-profile-type-assigner",
 		"lint": "@php ./vendor/php-parallel-lint/php-parallel-lint/parallel-lint . -e php --exclude vendor --exclude .git",
 		"lint-ci": "@php ./vendor/php-parallel-lint/php-parallel-lint/parallel-lint . -e php --exclude vendor --exclude .git --checkstyle",
 		"test:unit": "@php ./vendor/bin/phpunit --testsuite Unit",
