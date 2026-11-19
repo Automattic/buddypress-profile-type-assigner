@@ -16,7 +16,7 @@ This project follows the [Automattic Code of Conduct](https://automattic.com/cod
 
 ### Setup
 
-1. Clone the repository into a directory named `buddypress-profile-type-assigner`. The integration test scripts expect wp-env to mount the plugin under that name.
+1. Clone the repository.
 2. Install dependencies:
    ```bash
    composer install
