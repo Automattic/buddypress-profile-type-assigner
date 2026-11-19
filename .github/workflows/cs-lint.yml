@@ -33,10 +33,9 @@ jobs:
 
     strategy:
       matrix:
-        php: ['8.2', 'latest', '8.5']
+        # The lowest supported PHP, and the latest.
+        php: ['8.2', '8.5']
       fail-fast: false
-
-    continue-on-error: ${{ matrix.php == '8.5' }}
 
     steps:
       - name: Setup PHP ${{ matrix.php }}
