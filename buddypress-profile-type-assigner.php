@@ -12,6 +12,7 @@
  * Description:       Automatically assigns BuddyPress profile types to new users based on their email domain.
  * Version:           1.0.3
  * Requires at least: 6.6
+ * Tested up to:      7.1
  * Requires PHP:      8.2
  * Author:            WordPress VIP
  * Text Domain:       buddypress-profile-type-assigner
