@@ -57,6 +57,10 @@ You can find the profile type slug at the bottom of editing the profile type, bu
 * Member types configured in BuddyPress/BuddyBoss
 * WordPress roles configured for member types
 
+## Contributing
+
+Bug reports and pull requests are welcome on [GitHub](https://github.com/Automattic/buddypress-profile-type-assigner). See the [contributing guide](https://github.com/Automattic/buddypress-profile-type-assigner/blob/main/CONTRIBUTING.md) to get started.
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for a complete list of changes.
