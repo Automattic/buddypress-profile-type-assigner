@@ -20,8 +20,7 @@ buddypress-profile-type-assigner/
 ├── tests/
 │   ├── Unit/               # Unit tests
 │   └── Integration/        # Integration tests (wp-env)
-├── languages/              # Translation files
-├── .github/workflows/      # CI: cs-lint, integration
+├── .github/workflows/      # CI: cs-lint, integration, release
 └── .phpcs.xml.dist         # PHPCS configuration
 ```
 
@@ -63,6 +62,6 @@ See `CONTRIBUTING.md` for setup, checks and the contribution workflow. Key point
 - Do not edit WordPress core files or BuddyPress core files.
 - This plugin depends on BuddyPress — test environments must have BuddyPress installed and active.
 - Run `composer cs` before committing. CI will reject code standard violations.
-- Integration tests require `wp-env start` running first, using the globally installed `@wordpress/env` (see `CONTRIBUTING.md`). Don't use `npx wp-env`: there is no `package.json` here, so it would fetch the unrelated `wp-env` package from npm.
+- Integration tests require `wp-env start` running first, using the globally installed `@wordpress/env` (see `CONTRIBUTING.md`). Don't use `npx wp-env`: there is no `package.json` here, so if `@wordpress/env` isn't installed globally, `npx` fetches the unrelated `wp-env` package from npm instead.
 - Be careful with email domain matching logic — changes could inadvertently reassign profile types for existing users.
 - Do not add complex class hierarchies to a single-file plugin. If the plugin grows significantly, propose a restructure rather than bolting on classes.
