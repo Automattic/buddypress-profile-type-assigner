@@ -20,18 +20,18 @@ This project follows the [Automattic Code of Conduct](https://automattic.com/cod
 2. Install dependencies:
    ```bash
    composer install
-   npm -g install @wordpress/env
+   npm ci
    ```
 3. Start the WordPress environment:
    ```bash
-   wp-env start
+   npx wp-env start
    ```
 4. Visit http://localhost:8888 and log in with `admin` / `password`.
 
 The plugin does nothing without BuddyPress. To try it by hand, install BuddyPress in the development site and define the domain mapping described in the [README](README.md#configuration):
 
 ```bash
-wp-env run cli wp plugin install buddypress --activate
+npx wp-env run cli wp plugin install buddypress --activate
 ```
 
 ### Checks
