@@ -44,8 +44,10 @@ composer coverage          # Run tests with HTML coverage report
 
 ## Conventions
 
+See `CONTRIBUTING.md` for setup, checks and the contribution workflow. Key points:
+
 - **Commits**: Every commit must be signed; `develop` and `main` reject unsigned commits. Use a [Conventional Commits](https://www.conventionalcommits.org/) prefix (`fix:`, `feat:`, `test:`, `docs:`, `ci:`, `chore:` and so on) with an imperative subject of about 50 characters, and a body that explains why the change was needed rather than what changed. One concern per commit.
-- **PRs**: Open against `develop`. The title describes the outcome in sentence case, without a conventional commit prefix. The description explains the problem first, then how the PR solves it. PRs land as merge commits, not squashed, so every commit message reaches `develop` as written.
+- **PRs**: Open against `develop`. The title describes the outcome in sentence case, without a conventional commit prefix. The description explains the problem first, then how the PR solves it. PRs land as merge commits (squash and rebase merging are disabled), so every commit message reaches `develop` as written.
 - **Testing**: Write integration tests for WordPress-dependent behavior, unit tests for isolated logic. Extend `tests/Integration/TestCase.php` (`Yoast\WPTestUtils\WPIntegration\TestCase`) for integration tests and `tests/Unit/TestCase.php` (`Yoast\WPTestUtils\BrainMonkey\TestCase`) for unit tests.
 - **Code style**: WordPress coding standards via PHPCS. Tabs for indentation.
 - **i18n**: All user-facing strings must use the `buddypress-profile-type-assigner` text domain.
