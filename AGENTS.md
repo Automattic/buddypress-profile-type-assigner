@@ -44,12 +44,9 @@ composer coverage          # Run tests with HTML coverage report
 
 ## Conventions
 
-Follow the standards documented in `~/code/plugin-standards/` for full details. Key points:
-
-- **Commits**: Use the `/commit` skill. Favour explaining "why" over "what".
-- **PRs**: Use the `/pr` skill. Squash and merge by default.
-- **Branch naming**: `feature/description`, `fix/description` from `develop`.
-- **Testing**: Write integration tests for WordPress-dependent behaviour, unit tests for isolated logic. Use `Yoast\WPTestUtils\WPIntegration\TestCase` for integration, `Yoast\WPTestUtils\BrainMonkey\YoastTestCase` for unit.
+- **Commits**: Every commit must be signed; `develop` and `main` reject unsigned commits. Use a [Conventional Commits](https://www.conventionalcommits.org/) prefix (`fix:`, `feat:`, `test:`, `docs:`, `ci:`, `chore:` and so on) with an imperative subject of about 50 characters, and a body that explains why the change was needed rather than what changed. One concern per commit.
+- **PRs**: Open against `develop`. The title describes the outcome in sentence case, without a conventional commit prefix. The description explains the problem first, then how the PR solves it. PRs land as merge commits, not squashed, so every commit message reaches `develop` as written.
+- **Testing**: Write integration tests for WordPress-dependent behavior, unit tests for isolated logic. Extend `tests/Integration/TestCase.php` (`Yoast\WPTestUtils\WPIntegration\TestCase`) for integration tests and `tests/Unit/TestCase.php` (`Yoast\WPTestUtils\BrainMonkey\TestCase`) for unit tests.
 - **Code style**: WordPress coding standards via PHPCS. Tabs for indentation.
 - **i18n**: All user-facing strings must use the `buddypress-profile-type-assigner` text domain.
 
@@ -58,7 +55,6 @@ Follow the standards documented in `~/code/plugin-standards/` for full details. 
 - **Single-file plugin**: All plugin logic lives in the main PHP file at the root. This is intentional given the plugin's small scope — do not split into multiple classes unless complexity genuinely warrants it.
 - **Email domain matching**: The core logic matches user email domains to BuddyPress profile types. Changes to matching logic should be careful not to break existing assignments.
 - **BuddyPress dependency**: Assumes BuddyPress is active. No fallback behaviour without it.
-- **Tier 3 plugin**: Currently needs modernisation work (see PLUGIN_AUDIT.md). Improvements are welcome but should be incremental.
 
 ## Common Pitfalls
 
